@@ -1,0 +1,20 @@
+digraph swap {
+        rankdir=LR;
+        node [shape=record];
+        head [label= "head"];
+
+        n1 [label="{ <data> 1 | <ref>  }"];
+        n2 [label="{ <data> 2 | <ref>  }"];
+        n3 [label="{ <data> 3 | <ref>  }"];
+        n4 [label="{ <data> 4 | <ref>  }"];
+        n [label="node"]
+        t [label="tmp"]
+        n -> n1:ref:c;
+        t -> n3;
+        head-> n2;
+
+        n1:ref:c -> n4:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        n2:ref:c -> n1:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        n3:ref:c -> NULL [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        n4:ref:c -> NULL      [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+}

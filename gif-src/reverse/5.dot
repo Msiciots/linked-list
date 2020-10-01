@@ -1,0 +1,19 @@
+digraph reverse {
+        rankdir=LR;
+        node [shape=record];
+        head [label= "head"];
+
+        n1 [label="{ <data> 1 | <ref>  }"];
+        n2 [label="{ <data> 2 | <ref>  }"];
+        n3 [label="{ <data> 3 | <ref>  }"];
+
+        c [label="cursor"]
+        null [label="NULL"]
+        next [label="next"]
+        head-> n2;
+        next -> n3;
+        c -> n2;
+        n1:ref:c -> null [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        n2:ref:c -> n1:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        n3:ref:c -> NULL      [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+}
