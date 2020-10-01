@@ -1,0 +1,18 @@
+digraph add_entry {
+        rankdir=LR;
+        node [shape=record];
+        head_main [label= "head(main)"];
+        head_local [label= "head(local)"]
+        indirect [label= "indirect"]
+        entry [label="entry"]
+        n1 [label="{ <data> 72 | <ref>  }"];
+        n2 [label="{ <data> 101 | <ref>  }"];
+        n3 [label="{ <data> 108 | <ref>  }"];
+        entry -> n2
+        indirect -> n1:ref:c
+        head_local -> head_main
+        head_main-> n1;
+        n1:ref:c -> n2:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        n2:ref:c -> n3:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        n3:ref:c -> NULL      [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+}
